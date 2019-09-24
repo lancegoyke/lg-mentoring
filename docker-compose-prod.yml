@@ -3,7 +3,8 @@ version: '3.7'
 services:
   web:
     build: .
-    command: python /code/manage.py runserver 0.0.0.0:8000
+    # command: python /code/manage.py runserver 0.0.0.0:8000
+    command: gunicorn mentoring_project.wsgi -b 0.0.0.0:8000
     environment:
       - SECRET_KEY=iba2uvua-=(1-wvun*!g*_i0+^wn3t&vqxeib$$u33_i=!k2pe9
       - DEBUG=0
