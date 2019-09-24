@@ -1,0 +1,14 @@
+{% extends "_base.html" %}
+
+{% block title %}Questions{% endblock title %}
+
+{% block content %}
+  <h2>Questions</h2>
+  {% for question in question_list_by_user %}
+    <h3>
+      <a class="{% if question.date_published %}text-primary{% else %}text-secondary{% endif %}" href="{% url 'question_detail' question.pk %}">
+        {{ question.question_text }}
+      </a>
+    </h3>
+  {% endfor %}
+{% endblock content %}

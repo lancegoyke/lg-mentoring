@@ -1,0 +1,27 @@
+{% extends "_base.html" %}
+
+{% load crispy_forms_tags %}
+
+{% block title %}Questions{% endblock title %}
+
+{% block content %}
+  <div class="filter-form bg-light mb-5 p-4">
+    <h1>Questions</h1>
+    <form action="" method="get">
+      {{ filter.form|crispy }}
+      <input class="btn btn-info" type="submit" />
+      <a class="btn btn-light" href="{% url 'question_filtered_list' %}">Clear</a>
+    </form>
+  </div>
+
+  <div class="question-list">
+    <h2>Results</h2>
+  {% for question in filter.qs %}
+    <h3>
+      <a class="{% if question.date_published %}text-primary{% else %}text-secondary{% endif %}" href="{% url 'question_detail' question.pk %}">
+        {{ question.question_text }}
+      </a>
+    </h3>
+  {% endfor %}
+</div><!-- .question-list -->
+{% endblock content %}

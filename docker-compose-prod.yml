@@ -1,0 +1,28 @@
+version: '3.7'
+
+services:
+  web:
+    build: .
+    command: python /code/manage.py runserver 0.0.0.0:8000
+    environment:
+      - SECRET_KEY=iba2uvua-=(1-wvun*!g*_i0+^wn3t&vqxeib$$u33_i=!k2pe9
+      - DEBUG=0
+      - ENVIRONMENT=production
+      - EMAIL_HOST=smtp.sendgrid.net
+      - EMAIL_HOST_USER=apikey
+      - EMAIL_HOST_PASSWORD=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
+      - EMAIL_PORT=587
+      - EMAIL_USE_TLS=True
+    volumes:
+      - .:/code
+    ports:
+      - 8000:8000
+    depends_on:
+      - db
+  db:
+    image: postgres:11
+    volumes:
+      - postgres_data:/var/lib/postgresql/data/
+
+volumes:
+  postgres_data:

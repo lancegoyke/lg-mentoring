@@ -1,0 +1,47 @@
+{% extends "_base.html" %}
+
+{% load tz %}
+{% load embed_video_tags %}
+
+{% block title %}{{ question.question_text }}{% endblock title %}
+
+{% block content %}
+  <h1 class="mb-0">{{ question.question_text }}</h1>
+  <p>
+    <small>
+      Asked on {{ question.date_asked }} by
+      {% if user.is_superuser or not question.is_anonymous %}
+      {{ question.asker.username }}
+      {% else %}
+      Anonymous
+      {% endif %}
+    </small>
+  </p>
+
+  {% if question.date_published <= now %}
+  <div class="answer">
+
+    {% if question.answer_video %}
+    <!-- Vimeo embed code -->
+    {% video question.answer_video 'medium' %}
+    {% endif %}
+
+    {% if question.answer_text %}
+    <p>{{ question.answer_text }}</p>
+    {% endif %}
+
+    {% if question.answer_url %}
+    <a href="{{ question.answer_url }}">
+      Further reading.
+    </a>
+    {% endif %}
+  </div><!-- .answer -->
+  {% else %}
+  <p>This question has not yet been answered.</p>
+  {% endif %}
+  {% if user.is_superuser %}
+  <a class="btn btn-secondary btn-sm mt-4" href="{% url 'question_update' pk=question.pk %}">
+    Update
+  </a>
+  {% endif %}
+{% endblock content %}

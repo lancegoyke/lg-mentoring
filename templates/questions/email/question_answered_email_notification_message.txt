@@ -1,0 +1,5 @@
+Your question has been answered, {{ user.username }}.
+
+Check it out on the site at the following URL:
+
+{{ url }}
