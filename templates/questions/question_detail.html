@@ -40,8 +40,12 @@
   <p>This question has not yet been answered.</p>
   {% endif %}
   {% if user.is_superuser %}
-  <a class="btn btn-secondary btn-sm mt-4" href="{% url 'question_update' pk=question.pk %}">
-    Update
-  </a>
+  <div class="row">
+    <div class="col-md-6 col-lg-3">
+      <a class="btn btn-secondary btn-lg mt-4" href="{% url 'question_update' pk=question.pk %}">
+        Update
+      </a>
+    </div>
+  </div>
   {% endif %}
 {% endblock content %}
