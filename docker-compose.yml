@@ -8,6 +8,9 @@ services:
     environment:
       - SECRET_KEY=iba2uvua-=(1-wvun*!g*_i0+^wn3t&vqxeib$$u33_i=!k2pe9
       - DEBUG=1
+      - POSTGRES_NAME=postgres
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
       - ENVIRONMENT=development
       - EMAIL_HOST=smtp.sendgrid.net
       - EMAIL_HOST_USER=apikey
