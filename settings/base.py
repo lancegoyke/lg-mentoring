@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 
 import dj_database_url
 import os
+from django.contrib.messages import constants as messages
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -189,4 +190,13 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 # Google Analytics
 GOOGLE_ANALYTICS = {
     'google_analytics_id': os.environ.get('GOOGLE_ANALYTICS_ID'),
+}
+
+# Message styling
+MESSAGE_TAGS = {
+    messages.DEBUG: 'alert-warning',
+    messages.INFO: 'alert-info',
+    messages.SUCCESS: 'alert-success',
+    messages.WARNING: 'alert-warning',
+    messages.ERROR: 'alert-danger',
 }
