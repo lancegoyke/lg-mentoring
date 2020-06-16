@@ -1,11 +1,10 @@
-from django.core.mail import send_mail
-from django.template.loader import render_to_string
 from django.utils import timezone
 from django.urls import reverse_lazy, reverse, get_script_prefix
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.shortcuts import render, HttpResponseRedirect
 from django.views.generic import ListView, DetailView, FormView, CreateView, UpdateView
 from django.forms import TextInput
+from django.contrib.sites.models import Site
 
 from .filters import QuestionFilter
 
@@ -29,12 +28,10 @@ class QuestionDetailView(DetailView):
         return context
 
 
-'''
-Use the UpdateView to add in answers.
-'''
-
-
 class QuestionUpdateView(UserPassesTestMixin, UpdateView):
+    '''
+    Use the UpdateView to add in answers.
+    '''
     model = Question
     fields = ['question_text', 'answer_video',
               'answer_url', 'answer_text', 'is_published', ]
@@ -46,32 +43,14 @@ class QuestionUpdateView(UserPassesTestMixin, UpdateView):
         return self.request.user.is_superuser
 
     def form_valid(self, form):
-        if form.instance.is_published == True:
+        # Is the form becoming published?
+        if form.instance.is_published == True and self.get_object().is_published == False:
             form.instance.date_published = timezone.now()
-            # Notify the person who asked the question
-            from_email = 'noreply@lancegoyke.com'
-            recipient_list = ['lance@lancegoyke.com',
-                              self.request.user.email, ]
-            question_detail_view_url = self.request.build_absolute_uri(
-                reverse('question_detail', kwargs={'pk': self.get_object().pk}))
-            template_context = {
-                'pk': self.get_object().pk,
-                'user': self.request.user,
-                'url': question_detail_view_url
-            }
-            subject = render_to_string(
-                template_name='questions/email/question_answered_email_notification_subject.txt'
-            ).strip()
-            message = render_to_string(
-                template_name='questions/email/question_answered_email_notification_message.txt',
-                context=template_context
-            )
-            html_message = render_to_string(
-                template_name='questions/email/question_answered_email_notification_message.html',
-                context=template_context
-            )
-            send_mail(subject, message, from_email,
-                      recipient_list, html_message=html_message)
+            email = self.request.user.email
+            user = self.request.user
+            domain = Site.objects.get_current().domain
+            url = f'https://{domain}{self.object.get_absolute_url()}'
+            self.object.send_notification_email(email, user, url)
         return super(QuestionUpdateView, self).form_valid(form)
 
 
