@@ -4,7 +4,7 @@ from django.contrib.auth import get_user_model
 
 from embed_video.fields import EmbedVideoField
 
-# Create your models here.
+
 class Question(models.Model):
     question_text = models.CharField(max_length=200)
     answer_url = models.URLField(blank=True)
@@ -29,7 +29,8 @@ class Submission(models.Model):
     question_2 = models.CharField(max_length=200)
     post_question_2_anonymously = models.BooleanField(default=False)
     additional_notes = models.TextField()
-    submitted_by = models.ForeignKey(get_user_model(), on_delete=models.CASCADE)
+    submitted_by = models.ForeignKey(
+        get_user_model(), on_delete=models.CASCADE)
     date_submitted = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
