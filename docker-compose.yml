@@ -1,22 +1,11 @@
-version: '3.7'
+version: "3.7"
 
 services:
   web:
     build: .
     command: python /code/manage.py runserver 0.0.0.0:8000
     # command: gunicorn mentoring_project.wsgi -b 0.0.0.0:8000
-    environment:
-      - SECRET_KEY=iba2uvua-=(1-wvun*!g*_i0+^wn3t&vqxeib$$u33_i=!k2pe9
-      - DEBUG=1
-      - POSTGRES_NAME=postgres
-      - POSTGRES_USER=postgres
-      - POSTGRES_PASSWORD=postgres
-      - ENVIRONMENT=development
-      - EMAIL_HOST=smtp.sendgrid.net
-      - EMAIL_HOST_USER=apikey
-      - EMAIL_HOST_PASSWORD=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
-      - EMAIL_PORT=587
-      - EMAIL_USE_TLS=True
+    env_file: .env
     volumes:
       - .:/code
     ports:
