@@ -5,8 +5,13 @@
 {% block title %}Questions{% endblock title %}
 
 {% block content %}
-  <div class="filter-form bg-light mb-5 p-4">
-    <h1>Questions</h1>
+  <div class="d-flex flex-row align-items-end">
+    <h1 class="mr-3">Questions</h1>
+    <button class="btn btn-secondary btn-sm mb-4" type="button" data-toggle="collapse" data-target="#multiCollapseExample2" aria-expanded="false" aria-controls="multiCollapseExample2">
+      Filter questions
+    </button>
+  </div>
+  <div class="filter-form bg-light mb-5 p-4 collapse multi-collapse" id="multiCollapseExample2">
     <form action="" method="get">
       {{ filter.form|crispy }}
       <input class="btn btn-info" type="submit" />

@@ -19,7 +19,7 @@ class CustomSubmissionAdmin(admin.ModelAdmin):
 class CustomQuestionAdmin(AdminVideoMixin, admin.ModelAdmin):
     model = Question
     list_display = ['asker', 'date_asked', 'question_text', ]
-    ordering = ('date_asked', 'asker')
+    ordering = ('-date_asked',)
 
 
 admin.site.register(Question, CustomQuestionAdmin)
