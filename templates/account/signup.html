@@ -1,11 +1,13 @@
 {% extends "_base.html" %}
 {% load crispy_forms_tags %}
 
-{% block title %}Sign Up{% endblock %}
+{% block title %}Create Your Account{% endblock %}
 
 {% block content %}
   <div class="mx-auto col-12 col-sm-6">
-    <h2>Sign Up</h2>
+    <h2>Create Your Account</h2>
+    <p>You've successfully registered for the mentoring program! It's great to have you!</p>
+    <p>Before you can submit questions, you'll need an account. Fill out the form below to get going.</p>
     <form method="post">
       {% csrf_token %}
       {{ form|crispy }}
