@@ -13,9 +13,15 @@ from .forms import SubmissionCreationForm
 
 
 def question_filtered_list(request):
-    filter = QuestionFilter(
-        request.GET, queryset=Question.objects.all().order_by('-date_asked'))
-    return render(request, 'questions/question_filtered_list.html', {'filter': filter})
+    context = {}
+    if request.user.is_anonymous:
+        context["filter"] = QuestionFilter(
+            request.GET, queryset=Question.objects.all().order_by('-date_asked')[:10])
+        context["num_questions"] = Question.objects.all().count()
+    else:
+        context["filter"] = QuestionFilter(
+            request.GET, queryset=Question.objects.all().order_by('-date_asked'))
+    return render(request, 'questions/question_filtered_list.html', context)
 
 
 class QuestionDetailView(DetailView):
