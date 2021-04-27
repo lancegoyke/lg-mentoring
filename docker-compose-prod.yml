@@ -14,6 +14,7 @@ services:
       - EMAIL_HOST_PASSWORD=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
       - EMAIL_PORT=587
       - EMAIL_USE_TLS=True
+      - DJANGO_SETTINGS_MODULE=settings.production
     volumes:
       - .:/code
     ports:
