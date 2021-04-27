@@ -1,5 +1,7 @@
 from settings.base import *
 
+INSTALLED_APPS += ["storages"]
+
 # General security
 SECURE_BROWSER_XSS_FILTER = True
 X_FRAME_OPTIONS = 'DENY'
