@@ -1,3 +1,4 @@
+import dj_database_url
 from settings.base import *
 
 INSTALLED_APPS += ["storages"]
