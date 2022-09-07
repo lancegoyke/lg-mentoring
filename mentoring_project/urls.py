@@ -9,7 +9,7 @@ def trigger_error(request):
 
 urlpatterns = [
     # Django admin
-    path('behind-the-scenes/', admin.site.urls),
+    path('backside/', admin.site.urls),
 
     # Sentry error testing
     path('sentry-debug/', trigger_error),
