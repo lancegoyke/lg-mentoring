@@ -16,7 +16,7 @@ class QuestionFilter(django_filters.FilterSet):
     class Meta:
         model = Question
         fields = {
-            'question_text': ['contains'],
-            'asker__first_name': ['contains',],
-            'asker__last_name': ['contains',],
+            'question_text': ['icontains'],
+            'asker__first_name': ['icontains',],
+            'asker__last_name': ['icontains',],
         }
