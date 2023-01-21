@@ -53,9 +53,9 @@ class Question(models.Model):
 class Submission(models.Model):
     question_1 = models.CharField(max_length=200)
     post_question_1_anonymously = models.BooleanField(default=False)
-    question_2 = models.CharField(max_length=200)
-    post_question_2_anonymously = models.BooleanField(default=False)
-    additional_notes = models.TextField()
+    question_2 = models.CharField(max_length=200, blank=True)
+    post_question_2_anonymously = models.BooleanField(default=False, blank=True)
+    additional_notes = models.TextField(blank=True)
     submitted_by = models.ForeignKey(
         get_user_model(), on_delete=models.CASCADE)
     date_submitted = models.DateTimeField(auto_now_add=True)
