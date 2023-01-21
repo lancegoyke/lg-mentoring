@@ -51,7 +51,7 @@ class Question(models.Model):
 
 
 class Submission(models.Model):
-    question_1 = models.CharField(max_length=200)
+    question_1 = models.CharField(max_length=200, default=None)
     post_question_1_anonymously = models.BooleanField(default=False)
     question_2 = models.CharField(max_length=200, blank=True)
     post_question_2_anonymously = models.BooleanField(default=False, blank=True)
