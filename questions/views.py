@@ -1,8 +1,8 @@
 from django.utils import timezone
-from django.urls import reverse_lazy, reverse, get_script_prefix
+from django.urls import reverse_lazy
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
-from django.shortcuts import render, HttpResponseRedirect
-from django.views.generic import ListView, DetailView, FormView, CreateView, UpdateView
+from django.shortcuts import render
+from django.views.generic import DetailView, CreateView, UpdateView
 from django.contrib.sites.models import Site
 
 from .filters import QuestionFilter
