@@ -3,13 +3,11 @@ from django.urls import reverse_lazy, reverse, get_script_prefix
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.shortcuts import render, HttpResponseRedirect
 from django.views.generic import ListView, DetailView, FormView, CreateView, UpdateView
-from django.forms import TextInput
 from django.contrib.sites.models import Site
 
 from .filters import QuestionFilter
 
 from .models import Question, Submission
-from .forms import SubmissionCreationForm
 
 
 def question_filtered_list(request):
@@ -65,12 +63,6 @@ class SubmissionCreateView(CreateView):
     fields = ['question_1', 'post_question_1_anonymously',
               'question_2', 'post_question_2_anonymously', 'additional_notes', ]
     template_name = 'questions/submission_create.html'
-
-    def get_form(self):
-        form = super().get_form()
-        form.fields['question_2'].required = False
-        form.fields['additional_notes'].required = False
-        return form
 
     def form_valid(self, form):
         form.instance.submitted_by = self.request.user
