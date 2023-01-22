@@ -137,6 +137,24 @@ class QuestionTests(TestCase):
         response = self.client.get(self.public_question.get_absolute_url())
         self.assertEqual(response.status_code, 200)
 
+    def test_question_url(self):
+        self.assertEqual(self.public_question.get_absolute_url(), f'/q/{self.public_question.pk}/')
+
+    # def test_question_update_view_sends_email(self):
+    #     self.client.login(username=self.superuser_username, password=self.superuser_password)
+    #     response = self.client.post(self.public_question.get_absolute_url(), {
+    #         'question_text': 'New public question',
+    #         'asker': self.user.pk,
+    #         'is_anonymous': False,
+    #         'answer_url': 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
+    #         'answer_text': 'New public answer',
+    #         'date_published': timezone.now(),
+    #         'is_published': True
+    #     })
+    #     self.assertEqual(response.status_code, 302)
+    #     self.assertEqual(len(mail.outbox), 1)
+    #     self.assertEqual(mail.outbox[0].subject, 'Your question has been answered!')
+
 
 class SubmissionTests(TestCase):
 
