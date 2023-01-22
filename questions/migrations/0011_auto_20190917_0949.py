@@ -6,18 +6,18 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('questions', '0010_question_is_published'),
+        ("questions", "0010_question_is_published"),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='submission',
-            name='q1_is_anonymous',
+            model_name="submission",
+            name="q1_is_anonymous",
             field=models.BooleanField(default=False),
         ),
         migrations.AddField(
-            model_name='submission',
-            name='q2_is_anonymous',
+            model_name="submission",
+            name="q2_is_anonymous",
             field=models.BooleanField(default=False),
         ),
     ]

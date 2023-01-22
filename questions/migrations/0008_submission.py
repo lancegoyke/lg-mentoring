@@ -9,19 +9,47 @@ class Migration(migrations.Migration):
 
     dependencies = [
         migrations.swappable_dependency(settings.AUTH_USER_MODEL),
-        ('questions', '0007_question_answer_text'),
+        ("questions", "0007_question_answer_text"),
     ]
 
     operations = [
         migrations.CreateModel(
-            name='Submission',
+            name="Submission",
             fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('additional_notes', models.TextField()),
-                ('date_submitted', models.DateTimeField(auto_now_add=True)),
-                ('question_1', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='question_1', to='questions.Question')),
-                ('question_2', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='question_2', to='questions.Question')),
-                ('submitted_by', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to=settings.AUTH_USER_MODEL)),
+                (
+                    "id",
+                    models.AutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("additional_notes", models.TextField()),
+                ("date_submitted", models.DateTimeField(auto_now_add=True)),
+                (
+                    "question_1",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        related_name="question_1",
+                        to="questions.Question",
+                    ),
+                ),
+                (
+                    "question_2",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        related_name="question_2",
+                        to="questions.Question",
+                    ),
+                ),
+                (
+                    "submitted_by",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        to=settings.AUTH_USER_MODEL,
+                    ),
+                ),
             ],
         ),
     ]

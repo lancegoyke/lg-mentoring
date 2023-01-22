@@ -6,18 +6,18 @@ from django.db import migrations
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('questions', '0012_question_is_anonymous'),
+        ("questions", "0012_question_is_anonymous"),
     ]
 
     operations = [
         migrations.RenameField(
-            model_name='submission',
-            old_name='q1_is_anonymous',
-            new_name='post_q1_anonymously',
+            model_name="submission",
+            old_name="q1_is_anonymous",
+            new_name="post_q1_anonymously",
         ),
         migrations.RenameField(
-            model_name='submission',
-            old_name='q2_is_anonymous',
-            new_name='post_q2_anonymously',
+            model_name="submission",
+            old_name="q2_is_anonymous",
+            new_name="post_q2_anonymously",
         ),
     ]

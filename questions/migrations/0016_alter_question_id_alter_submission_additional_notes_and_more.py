@@ -6,33 +6,37 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('questions', '0015_question_answer_video'),
+        ("questions", "0015_question_answer_video"),
     ]
 
     operations = [
         migrations.AlterField(
-            model_name='question',
-            name='id',
-            field=models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID'),
+            model_name="question",
+            name="id",
+            field=models.BigAutoField(
+                auto_created=True, primary_key=True, serialize=False, verbose_name="ID"
+            ),
         ),
         migrations.AlterField(
-            model_name='submission',
-            name='additional_notes',
+            model_name="submission",
+            name="additional_notes",
             field=models.TextField(blank=True),
         ),
         migrations.AlterField(
-            model_name='submission',
-            name='id',
-            field=models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID'),
+            model_name="submission",
+            name="id",
+            field=models.BigAutoField(
+                auto_created=True, primary_key=True, serialize=False, verbose_name="ID"
+            ),
         ),
         migrations.AlterField(
-            model_name='submission',
-            name='post_question_2_anonymously',
+            model_name="submission",
+            name="post_question_2_anonymously",
             field=models.BooleanField(blank=True, default=False),
         ),
         migrations.AlterField(
-            model_name='submission',
-            name='question_2',
+            model_name="submission",
+            name="question_2",
             field=models.CharField(blank=True, max_length=200),
         ),
     ]

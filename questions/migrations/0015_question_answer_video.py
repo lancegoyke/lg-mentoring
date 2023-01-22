@@ -7,13 +7,13 @@ import embed_video.fields
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('questions', '0014_auto_20190917_1003'),
+        ("questions", "0014_auto_20190917_1003"),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='question',
-            name='answer_video',
+            model_name="question",
+            name="answer_video",
             field=embed_video.fields.EmbedVideoField(blank=True),
         ),
     ]

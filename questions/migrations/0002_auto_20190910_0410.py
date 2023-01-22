@@ -7,29 +7,31 @@ import django.utils.timezone
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('questions', '0001_initial'),
+        ("questions", "0001_initial"),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='question',
-            name='date_posed',
-            field=models.DateTimeField(auto_now_add=True, default=django.utils.timezone.now),
+            model_name="question",
+            name="date_posed",
+            field=models.DateTimeField(
+                auto_now_add=True, default=django.utils.timezone.now
+            ),
             preserve_default=False,
         ),
         migrations.AlterField(
-            model_name='question',
-            name='answer_url',
+            model_name="question",
+            name="answer_url",
             field=models.URLField(blank=True),
         ),
         migrations.AlterField(
-            model_name='question',
-            name='date_published',
+            model_name="question",
+            name="date_published",
             field=models.DateTimeField(blank=True),
         ),
         migrations.AlterField(
-            model_name='question',
-            name='question_text',
+            model_name="question",
+            name="question_text",
             field=models.TextField(),
         ),
     ]

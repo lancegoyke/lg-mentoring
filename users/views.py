@@ -9,26 +9,31 @@ from .forms import UserForm, UserProfileForm
 
 @login_required
 def update_profile(request):
-    if request.method == 'POST':
+    if request.method == "POST":
         user_form = UserForm(request.POST, instance=request.user)
         profile_form = UserProfileForm(
-            request.POST, request.FILES, instance=request.user.profile)
+            request.POST, request.FILES, instance=request.user.profile
+        )
         if user_form.is_valid() and profile_form.is_valid():
             user_form.save()
             profile_form.save()
             messages.success(
                 request,
-                'Your profile was successfully updated!',
-                extra_tags='alert alert-success'
+                "Your profile was successfully updated!",
+                extra_tags="alert alert-success",
             )
-            return redirect('profile')
+            return redirect("profile")
         else:
-            messages.error(request, 'Please correct the error below.',
-                           extra_tags='alert alert-danger')
+            messages.error(
+                request,
+                "Please correct the error below.",
+                extra_tags="alert alert-danger",
+            )
     else:
         user_form = UserForm(instance=request.user)
         profile_form = UserProfileForm(instance=request.user.profile)
-    return render(request, 'account/profile.html', {
-        'user_form': user_form,
-        'profile_form': profile_form
-    })
+    return render(
+        request,
+        "account/profile.html",
+        {"user_form": user_form, "profile_form": profile_form},
+    )

@@ -7,24 +7,21 @@ from django.conf.urls.static import static
 def trigger_error(request):
     division_by_zero = 1 / 0
 
+
 urlpatterns = [
     # Django admin
-    path('backside/', admin.site.urls),
-
+    path("backside/", admin.site.urls),
     # Sentry error testing
-    path('sentry-debug/', trigger_error),
-
+    path("sentry-debug/", trigger_error),
     # User management
-    path('accounts/', include('allauth.urls')),
-    path('accounts/', include('users.urls')),
-
+    path("accounts/", include("allauth.urls")),
+    path("accounts/", include("users.urls")),
     # 3rd party
-    path('djga/', include('google_analytics.urls')),
-
+    path("djga/", include("google_analytics.urls")),
     # Local apps
-    path('', include('pages.urls')),
-    path('questions/', include('questions.urls')),
-    path('q/', include('questions.urls')),
+    path("", include("pages.urls")),
+    path("questions/", include("questions.urls")),
+    path("q/", include("questions.urls")),
 ]
 
 if settings.DEBUG:
