@@ -1,6 +1,8 @@
 import os
 from django.contrib.messages import constants as messages
 
+# from settings.production import SECURE_SSL_REDIRECT
+
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -16,7 +18,6 @@ ALLOWED_HOSTS = [
     'localhost',
     '127.0.0.1',
 ]
-
 
 # Application definition
 
@@ -186,3 +187,5 @@ MESSAGE_TAGS = {
 }
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+SECURE_SSL_REDIRECT = False
