@@ -1,5 +1,3 @@
-version: '3.7'
-
 services:
   web:
     build: .
@@ -9,11 +7,6 @@ services:
       - SECRET_KEY=iba2uvua-=(1-wvun*!g*_i0+^wn3t&vqxeib$$u33_i=!k2pe9
       - DEBUG=0
       - ENVIRONMENT=production
-      - EMAIL_HOST=smtp.sendgrid.net
-      - EMAIL_HOST_USER=apikey
-      - EMAIL_HOST_PASSWORD=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
-      - EMAIL_PORT=587
-      - EMAIL_USE_TLS=True
       - DJANGO_SETTINGS_MODULE=settings.production
     volumes:
       - .:/code
