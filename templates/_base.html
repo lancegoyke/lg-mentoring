@@ -1,5 +1,4 @@
 {% load static %}
-{% load google_analytics_tags %}
 
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
@@ -25,12 +24,6 @@
       Content here.
       {% endblock content %}
     </div>
-
-    {% block google_analytics %}
-    <div style="display:none;">
-      <img src="{% google_analytics %}" width="0" height="0" />
-    </div>
-    {% endblock %}
 
     <!-- JavaScript -->
     {% block javascript %}

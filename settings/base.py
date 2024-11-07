@@ -39,7 +39,6 @@ INSTALLED_APPS = [
     "allauth.account",
     "django_filters",
     "embed_video",
-    "google_analytics",
     # Local
     "users.apps.UsersConfig",
     "pages.apps.PagesConfig",
@@ -174,11 +173,6 @@ EMAIL_USE_TLS = os.environ.get("EMAIL_USE_TLS")
 MEDIA_URL = "/media/"
 MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 
-
-# Google Analytics
-GOOGLE_ANALYTICS = {
-    "google_analytics_id": os.environ.get("GOOGLE_ANALYTICS_ID"),
-}
 
 # Message styling
 MESSAGE_TAGS = {

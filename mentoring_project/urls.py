@@ -16,8 +16,6 @@ urlpatterns = [
     # User management
     path("accounts/", include("allauth.urls")),
     path("accounts/", include("users.urls")),
-    # 3rd party
-    path("djga/", include("google_analytics.urls")),
     # Local apps
     path("", include("pages.urls")),
     path("questions/", include("questions.urls")),
