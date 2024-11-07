@@ -21,12 +21,11 @@ python manage.py runserver
 
 # run tests
 python manage.py test
-
-# deploy
-heroku login
-heroku git:remote -a lg-mentoring
-git push heroku master
 ```
+
+## Deploy
+
+This project is deployed on Heroku. Every push to the `master` branch will deploy to Heroku automatically.
 
 ## Tech stack
 
