@@ -24,6 +24,7 @@ python manage.py test
 
 # deploy
 heroku login
+heroku git:remote -a lg-mentoring
 git push heroku master
 ```
 
