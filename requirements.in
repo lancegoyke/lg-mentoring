@@ -2,7 +2,7 @@ django==4.2.16
 psycopg2-binary==2.9.5
 django-crispy-forms==1.14.0
 django-allauth==0.52.0
-django-filter==22.1
+django-filter
 pillow
 django-embed-video==1.4.10
 whitenoise==6.3.0
