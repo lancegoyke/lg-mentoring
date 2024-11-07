@@ -31,12 +31,13 @@ django==4.2.16
     #   -r requirements.in
     #   dj-database-url
     #   django-allauth
+    #   django-crispy-forms
     #   django-embed-video
     #   django-filter
     #   django-storages
 django-allauth==0.52.0
     # via -r requirements.in
-django-crispy-forms==1.14.0
+django-crispy-forms==2.3
     # via -r requirements.in
 django-embed-video==1.4.10
     # via -r requirements.in
