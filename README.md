@@ -7,11 +7,20 @@ It's pretty simple; lightweight and fast!
 ## Development
 
 ```
-# spin up Django development server
-docker-compose up -d --build
+# Create virtual environment
+uv venv
+
+# Install dependencies
+uv pip sync requirements.txt
+
+# Start database
+docker-compose up -d
+
+# Start development server
+python manage.py runserver
 
 # run tests
-docker-compose exec web python manage.py test
+python manage.py test
 
 # deploy
 heroku login
@@ -20,11 +29,10 @@ git push heroku master
 
 ## Tech stack
 
-* Docker Compose
-* Python 3.11
-* Django 4.1
-* Pipenv
-* PostgreSQL
-* SendGrid for SMTP
-* Bootstrap for style
-* Heroku for deployment
+- Docker Compose
+- Python 3.11
+- Django 4.1
+- PostgreSQL
+- SendGrid for SMTP
+- Bootstrap for style
+- Heroku for deployment
