@@ -35,6 +35,8 @@ INSTALLED_APPS = [
     "django.contrib.sites",
     # 3rd party
     "crispy_forms",
+    "crispy_bootstrap5",
+    "django_browser_reload",
     "allauth",
     "allauth.account",
     "django_filters",
@@ -54,6 +56,7 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
+    "django_browser_reload.middleware.BrowserReloadMiddleware",
 ]
 
 ROOT_URLCONF = "mentoring_project.urls"
@@ -139,7 +142,7 @@ STATICFILES_FINDERS = [
 
 
 # django-crispy-forms
-CRISPY_TEMPLATE_PACK = "bootstrap4"
+CRISPY_TEMPLATE_PACK = "bootstrap5"
 
 
 # django-allauth

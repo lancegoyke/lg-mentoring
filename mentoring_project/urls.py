@@ -20,6 +20,7 @@ urlpatterns = [
     path("", include("pages.urls")),
     path("questions/", include("questions.urls")),
     path("q/", include("questions.urls")),
+    path("__reload__/", include("django_browser_reload.urls")),
 ]
 
 if settings.DEBUG:
