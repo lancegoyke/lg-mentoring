@@ -2,7 +2,6 @@ import os
 from django.contrib.messages import constants as messages
 import dj_database_url
 
-# from settings.production import SECURE_SSL_REDIRECT
 from dotenv import load_dotenv
 
 load_dotenv()
