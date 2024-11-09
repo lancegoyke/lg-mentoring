@@ -1,4 +1,4 @@
-django==5.0.9
+django==5.1.3
 psycopg
 crispy-bootstrap5
 django-browser-reload
