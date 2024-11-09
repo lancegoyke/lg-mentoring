@@ -12,6 +12,6 @@ boto3
 django-storages[s3]
 gunicorn
 dj-database-url
-sentry-sdk==1.14.0
+sentry-sdk
 black==22.12.0
 python-dotenv
