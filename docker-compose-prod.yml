@@ -7,7 +7,7 @@ services:
       - SECRET_KEY=iba2uvua-=(1-wvun*!g*_i0+^wn3t&vqxeib$$u33_i=!k2pe9
       - DEBUG=0
       - ENVIRONMENT=production
-      - DJANGO_SETTINGS_MODULE=mentoring_project.settings
+      - DJANGO_SETTINGS_MODULE=settings.production
     volumes:
       - .:/code
     ports:
