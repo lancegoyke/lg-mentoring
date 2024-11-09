@@ -35,9 +35,15 @@ SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
 STORAGES = {
     "default": {
         "BACKEND": "storages.backends.s3.S3Storage",
+        "OPTIONS": {
+            "default_acl": "public-read",
+        },
     },
     "staticfiles": {
         "BACKEND": "storages.backends.s3.S3Storage",
+        "OPTIONS": {
+            "default_acl": "public-read",
+        },
     },
 }
 AWS_ACCESS_KEY_ID = os.environ.get("AWS_ACCESS_KEY_ID")
