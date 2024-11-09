@@ -96,7 +96,7 @@ class QuestionTests(TestCase):
         qs = Question.objects.all()
         query = {"question_text__icontains": "public"}
         f = QuestionFilter(query, queryset=qs)
-        self.assertQuerysetEqual(
+        self.assertQuerySetEqual(
             f.qs, [self.public_question.pk], lambda o: o.pk, ordered=False
         )
 
@@ -104,7 +104,7 @@ class QuestionTests(TestCase):
         qs = Question.objects.all()
         query = {"asker__first_name__icontains": self.user_firstname}
         f = QuestionFilter(query, queryset=qs)
-        self.assertQuerysetEqual(
+        self.assertQuerySetEqual(
             f.qs,
             [self.public_question.pk, self.anonymous_question.pk],
             lambda o: o.pk,
@@ -115,7 +115,7 @@ class QuestionTests(TestCase):
         qs = Question.objects.all()
         query = {"asker__last_name__icontains": self.user_lastname}
         f = QuestionFilter(query, queryset=qs)
-        self.assertQuerysetEqual(
+        self.assertQuerySetEqual(
             f.qs,
             [self.public_question.pk, self.anonymous_question.pk],
             lambda o: o.pk,

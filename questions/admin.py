@@ -5,6 +5,7 @@ from embed_video.admin import AdminVideoMixin
 from .models import Question, Submission
 
 
+@admin.register(Submission)
 class CustomSubmissionAdmin(admin.ModelAdmin):
     model = Submission
     list_display = [
@@ -16,6 +17,7 @@ class CustomSubmissionAdmin(admin.ModelAdmin):
     ordering = ("-date_submitted",)
 
 
+@admin.register(Question)
 class CustomQuestionAdmin(AdminVideoMixin, admin.ModelAdmin):
     model = Question
     list_display = [
@@ -26,5 +28,3 @@ class CustomQuestionAdmin(AdminVideoMixin, admin.ModelAdmin):
     ordering = ("-date_asked",)
 
 
-admin.site.register(Question, CustomQuestionAdmin)
-admin.site.register(Submission, CustomSubmissionAdmin)

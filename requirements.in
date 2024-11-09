@@ -1,10 +1,11 @@
-django==4.2.16
+django==5.0.9
 psycopg
 crispy-bootstrap5
 django-browser-reload
 django-crispy-forms
 django-allauth
 django-filter
+django-upgrade
 pillow
 django-embed-video
 whitenoise

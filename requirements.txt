@@ -23,7 +23,7 @@ crispy-bootstrap5==2024.10
     # via -r requirements.in
 dj-database-url==2.3.0
     # via -r requirements.in
-django==4.2.16
+django==5.0.9
     # via
     #   -r requirements.in
     #   crispy-bootstrap5
@@ -47,6 +47,8 @@ django-embed-video==1.4.10
 django-filter==24.3
     # via -r requirements.in
 django-storages==1.14.4
+    # via -r requirements.in
+django-upgrade==1.22.1
     # via -r requirements.in
 gunicorn==23.0.0
     # via -r requirements.in
@@ -76,6 +78,8 @@ six==1.16.0
     # via python-dateutil
 sqlparse==0.5.1
     # via django
+tokenize-rt==6.1.0
+    # via django-upgrade
 typing-extensions==4.12.2
     # via
     #   dj-database-url
