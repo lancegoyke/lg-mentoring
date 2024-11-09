@@ -3,7 +3,7 @@ psycopg2-binary==2.9.5
 crispy-bootstrap5
 django-browser-reload
 django-crispy-forms
-django-allauth==0.52.0
+django-allauth
 django-filter
 pillow
 django-embed-video
