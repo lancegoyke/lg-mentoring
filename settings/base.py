@@ -1,5 +1,6 @@
 import os
 from django.contrib.messages import constants as messages
+import dj_database_url
 
 # from settings.production import SECURE_SSL_REDIRECT
 from dotenv import load_dotenv
@@ -14,6 +15,9 @@ SECRET_KEY = os.environ.get("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = int(os.environ.get("DEBUG", default=0))
+
+# For environment-specific settings, expecting "production" or "development"
+ENVIRONMENT = os.environ.get("ENVIRONMENT", "development")
 
 ALLOWED_HOSTS = [
     "mentoring.lancegoyke.com",
@@ -84,16 +88,23 @@ WSGI_APPLICATION = "mentoring_project.wsgi.application"
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 
-DATABASES = {
-    "default": {
-        "ENGINE": "django.db.backends.postgresql",
-        "NAME": os.environ.get("POSTGRES_NAME"),
-        "USER": os.environ.get("POSTGRES_USER"),
-        "PASSWORD": os.environ.get("POSTGRES_PASSWORD"),
-        "HOST": os.environ.get("POSTGRES_HOST", "db"),
-        "PORT": 5432,
+if ENVIRONMENT == "production":
+    DATABASES = {
+        "default": dj_database_url.config(
+            conn_max_age=500,
+        )
     }
-}
+else:
+    DATABASES = {
+        "default": {
+            "ENGINE": "django.db.backends.postgresql",
+            "NAME": os.environ.get("POSTGRES_NAME"),
+            "USER": os.environ.get("POSTGRES_USER"),
+            "PASSWORD": os.environ.get("POSTGRES_PASSWORD"),
+            "HOST": os.environ.get("POSTGRES_HOST", "db"),
+            "PORT": 5432,
+        }
+    }
 
 
 # Password validation
