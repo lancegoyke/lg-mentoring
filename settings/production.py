@@ -37,12 +37,14 @@ STORAGES = {
         "BACKEND": "storages.backends.s3.S3Storage",
         "OPTIONS": {
             "default_acl": "public-read",
+            "querystring_auth": False,
         },
     },
     "staticfiles": {
         "BACKEND": "storages.backends.s3.S3Storage",
         "OPTIONS": {
             "default_acl": "public-read",
+            "querystring_auth": False,
         },
     },
 }
