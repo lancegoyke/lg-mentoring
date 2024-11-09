@@ -111,5 +111,5 @@ urllib3==1.26.20
     #   botocore
     #   requests
     #   sentry-sdk
-whitenoise==6.3.0
+whitenoise==6.8.2
     # via -r requirements.in

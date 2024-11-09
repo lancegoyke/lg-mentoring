@@ -7,7 +7,7 @@ django-allauth==0.52.0
 django-filter
 pillow
 django-embed-video
-whitenoise==6.3.0
+whitenoise
 boto3
 django-storages[s3]
 gunicorn
