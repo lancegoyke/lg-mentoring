@@ -1,0 +1,7 @@
+[project]
+name = "lg-mentoring"
+version = "2024.11.9"
+description = "A video-based mentoring program."
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = []
