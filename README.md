@@ -6,12 +6,18 @@ It's pretty simple; lightweight and fast!
 
 ## Development
 
-```
-# Create virtual environment
-uv venv
+```shell
+# Create a virtual environment and install dependencies
+uv sync
+# or
+uv pip sync pyproject.toml
 
-# Install dependencies
-uv pip sync requirements.txt
+# Add a dependency
+uv add <package>
+# or add to pyproject.toml
+
+# Upgrade a package
+uv lock --upgrade-package <package>
 
 # Start database
 docker-compose up -d
@@ -26,6 +32,11 @@ python manage.py test
 ## Deploy
 
 This project is deployed on Heroku. Every push to the `master` branch will deploy to Heroku automatically.
+
+```shell
+# Lock dependencies
+uv pip compile pyproject.toml > requirements.txt
+```
 
 ## Tech stack
 
