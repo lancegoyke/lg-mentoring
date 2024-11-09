@@ -221,6 +221,7 @@ MESSAGE_TAGS = {
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 if ENVIRONMENT == "production":
+    # Error monitoring
     import sentry_sdk
     from sentry_sdk.integrations.django import DjangoIntegration
 
@@ -237,3 +238,15 @@ if ENVIRONMENT == "production":
         # django.contrib.auth) you may enable sending PII data.
         send_default_pii=True,
     )
+
+    # General security
+    SECURE_BROWSER_XSS_FILTER = True
+    X_FRAME_OPTIONS = "DENY"
+    SECURE_SSL_REDIRECT = True
+    SECURE_HSTS_SECONDS = 3600
+    SECURE_HSTS_INCLUDE_SUBDOMAINS = True
+    SECURE_HSTS_PRELOAD = True
+    SECURE_CONTENT_TYPE_NOSNIFF = True
+    SESSION_COOKIE_SECURE = True
+    CSRF_COOKIE_SECURE = True
+    SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
