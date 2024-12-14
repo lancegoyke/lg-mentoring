@@ -11,6 +11,7 @@ dependencies = [
     "django-allauth",
     "django-browser-reload",
     "django-crispy-forms",
+    "django-debug-toolbar",
     "django-embed-video",
     "django-filter",
     "django-storages[s3]",

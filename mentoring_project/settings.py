@@ -1,4 +1,5 @@
 import os
+import sys
 from django.contrib.messages import constants as messages
 import dj_database_url
 
@@ -17,6 +18,7 @@ DEBUG = int(os.environ.get("DEBUG", default=0))
 
 # For environment-specific settings, expecting "production" or "development"
 ENVIRONMENT = os.environ.get("ENVIRONMENT", "development")
+TESTING = "test" in sys.argv[0]
 
 ALLOWED_HOSTS = [
     "mentoring.lancegoyke.com",
@@ -62,6 +64,16 @@ MIDDLEWARE = [
     "allauth.account.middleware.AccountMiddleware",
     "django_browser_reload.middleware.BrowserReloadMiddleware",
 ]
+
+if not TESTING:
+    INSTALLED_APPS = [
+        *INSTALLED_APPS,
+        "debug_toolbar",
+    ]
+    MIDDLEWARE = [
+        "debug_toolbar.middleware.DebugToolbarMiddleware",
+        *MIDDLEWARE,
+    ]
 
 ROOT_URLCONF = "mentoring_project.urls"
 
@@ -217,6 +229,8 @@ MESSAGE_TAGS = {
 }
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+INTERNAL_IPS = ["127.0.0.1"]
 
 if ENVIRONMENT == "production":
     # Error monitoring
