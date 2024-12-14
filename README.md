@@ -32,12 +32,7 @@ python manage.py test
 
 ## Deploy
 
-This project is deployed on Heroku. Every push to the `master` branch will deploy to Heroku automatically.
-
-```shell
-# Lock dependencies
-uv pip compile pyproject.toml > requirements.txt
-```
+This project is deployed on Heroku. Every push to the `main` branch will deploy to Heroku automatically.
 
 ## Tech stack
 

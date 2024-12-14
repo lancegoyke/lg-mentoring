@@ -1,6 +1,6 @@
 [project]
 name = "lg-mentoring"
-version = "2024.12.08"
+version = "2024.12.14"
 description = "A video-based mentoring program."
 readme = "README.md"
 requires-python = ">=3.12"
