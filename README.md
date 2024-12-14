@@ -8,16 +8,17 @@ It's pretty simple; lightweight and fast!
 
 ```shell
 # Create a virtual environment and install dependencies
-uv sync
-# or
-uv pip sync pyproject.toml
+uv pip sync requirements.txt
 
 # Add a dependency
 uv add <package>
 # or add to pyproject.toml
 
-# Upgrade a package
-uv lock --upgrade-package <package>
+# Upgrade a dependency
+uv pip compile pyproject.toml --upgrade-package <package> > requirements.txt
+
+# Upgrade all dependencies
+uv pip compile --upgrade pyproject.toml > requirements.txt
 
 # Start database
 docker-compose up -d
