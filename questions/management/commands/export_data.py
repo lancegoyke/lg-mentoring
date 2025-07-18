@@ -8,6 +8,7 @@ from questions.models import Question
 # Import boto3 only if in production
 if settings.ENVIRONMENT == "production":
     import boto3
+    from boto3.session import Config
     from botocore.exceptions import ClientError
 
 
@@ -104,11 +105,16 @@ class Command(BaseCommand):
     def _upload_to_s3(self, json_data, filename):
         """Upload JSON data to S3 bucket"""
         try:
-            # Initialize S3 client
+            # Get AWS region from settings
+            aws_region = getattr(settings, "AWS_S3_REGION_NAME", "us-east-1")
+
+            # Initialize S3 client with proper configuration
             s3_client = boto3.client(
                 "s3",
                 aws_access_key_id=settings.AWS_ACCESS_KEY_ID,
                 aws_secret_access_key=settings.AWS_SECRET_ACCESS_KEY,
+                region_name=aws_region,
+                config=Config(signature_version="s3v4"),
             )
 
             # Upload to S3
