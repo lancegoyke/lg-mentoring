@@ -6,7 +6,7 @@ __pycache__
 db.sqlite3
 media
 staticfiles/
-mentoring_data.json
+mentoring_data*.json
 
 # Backup files # 
 *.bak 
